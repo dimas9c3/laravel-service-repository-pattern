@@ -21,63 +21,43 @@
 <body class="easyui-layout">
     <!--div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;">north region</div-->
     <div data-options="region:'west',split:true,title:'Menu'" style="width:200px;">
-
         <div class="easyui-accordion" style="width:100%;">
             <div title="Menu Utama" data-options="selected:true">
                 <div class="easyui-panel" style="padding:5px;width: 100%;">
                     <ul id="tt" class="easyui-tree" data-options="
-            				url: '{{ url('api/get_menu') }}',
-            				method: 'get',
-            				animate: true,
+            url: '{{ url('api/get_menu') }}',
+            method: 'get',
+            animate: true,
                             onClick: function(e,node){
                                 if(e.url != '#'){
                                     addPanel(e.id,e.text);
                                     load(e.id,e.url);
                                 }
                             }
-            			">
+            ">
                     </ul>
                 </div>
             </div>
             <div title="Menu User" style="padding:5px">
-                <p>Hallo, Gugun Gunawan</p>
+                <p>Hallo, User</p>
                 <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small" onclick="gantiPass()"
                     style="width:100%;height:34px;margin-bottom: 2px;">Ganti Password</a>
                 <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small"
-                    onclick="window.location.href='http://demo.brainlogics.org/login/logout'"
+                    onclick="window.location.href='#"
                     style="width:100%;height:34px" group="" id="">Logout</a>
 
             </div>
         </div>
-
     </div>
-    <div data-options="region:'east',split:true,collapsed:true,title:'Chatbox'" style="width:300px;padding:5px;">
-        <div class="easyui-panel" title="Gugun Gunawan" style="width:100%;height:99%;" data-options="footer:'#footer'">
 
-
-        </div>
-        <div id="footer" style="padding:5px;">
-            <input class="easyui-textbox" name="message" style="width:100%;height:60px" data-options="multiline:true">
-            <div style="text-align: right;padding-top: 3px;">
-                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()"
-                    style="width:80px;padding-left:">Kirim</a>
-            </div>
-
-        </div>
-    </div>
-    <div data-options="region:'south',border:false" style="height:30px;padding:5px;">Powered By Praktik Dokter THT dan
-        Apotik</div>
+    <div data-options="region:'south',border:false" style="height:30px;padding:5px;">Copyright</div>
     <div data-options="region:'center',title:''">
-
-
         <div id="tab" class="easyui-tabs" style="width:100%;height:100%;border: none;">
             <div title="Dashboard" style="padding:10px;overflow:visible" id="dashboard">
                 <div class="easyui-panel" style="width: 100%; height: 100%;border:none" id="page_00000000">
 
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -98,12 +78,12 @@
             </div>
         </form>
     </div>
+
     <div id="dlg_ganti_password-buttons">
         <div class="easyui-linkbutton" iconCls="icon-ok" onclick="savePass()">Save</div>
         <div class="easyui-linkbutton" iconCls="icon-cancel"
             onclick="javascript:$('#dlg_ganti_password').dialog('close')">Cancel</div>
     </div>
-
 
     <script type="text/javascript">
         function gantiPass() {
@@ -124,10 +104,10 @@
 
             $('#fm_ganti_password').form('submit', {
                 url: 'login/gantiPass',
-                onSubmit: function () {
+                onSubmit: function() {
                     return $(this).form('validate');
                 },
-                success: function (result) {
+                success: function(result) {
                     var result = eval('(' + result + ')');
                     if (result.success) {
                         $('#dlg_ganti_password').dialog('close'); // close the dialog
@@ -291,7 +271,6 @@
             else dayString = " day";
             return age;
         }
-
     </script>
 
 </body>
