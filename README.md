@@ -10,6 +10,7 @@ You need docker to run this project
 - cp .env.example .env
 - docker-compose up -d --build
 - docker exec -it laravel_service_repository_pattern_app /bin/bash
+- composer install
 - php artisan key:generate
 - php artisan storage:link
 - php artisan migrate:fresh --seed
