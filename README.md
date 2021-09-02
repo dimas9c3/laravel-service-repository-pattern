@@ -11,4 +11,5 @@ You need docker to run this project
 - docker-compose up -d --build
 - docker exec -it laravel_service_repository_pattern_app /bin/bash
 - php artisan key:generate
+- php artisan storage:link
 - php artisan migrate:fresh --seed
