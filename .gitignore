@@ -4,9 +4,6 @@
 /storage/*.key
 /vendor
 ./vendor/*
-docker/data/mysql/
-docker/data/logs/apache/
-docker/data/logs/mysql/
 .env
 .env.backup
 .phpunit.result.cache
