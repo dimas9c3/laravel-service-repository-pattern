@@ -20,24 +20,17 @@ class PasienService
         $param = buildParamModel();
 
         if ($data['filter_nama_pasien'] ?? null) {
-            $param['filter'] = array_merge(
-                $param['filter'],
-                ['PASIEN.NAMAPASIEN', 'LIKE', "%{$data['filter_nama_pasien']}%"]
-            );
+            $filter = ['PASIEN.NAMAPASIEN', 'LIKE', "%{$data['filter_nama_pasien']}%"];
+            $param['filter'] = array_merge($param['filter'], $filter);
         }
 
         if ($data['filter_no_pasien'] ?? null) {
-            $param['filter'] = array_merge(
-                $param['filter'],
-                ['PASIEN.NOPASIEN', 'LIKE', "%{$data['filter_no_pasien']}%"]
-            );
+            $filter = ['PASIEN.NOPASIEN', 'LIKE', "%{$data['filter_no_pasien']}%"];
+            $param['filter'] = array_merge($param['filter'], $filter);
         }
 
         if ($data['sort'] ?? null) {
-            $param['sort'] = array_merge(
-                $param['sort'],
-                [$data['sort'] => $data['order']]
-            );
+            $param['sort'] = array_merge($param['sort'], [$data['sort'] => $data['order']]);
         }
 
         if ($data['rows'] ?? null) {
